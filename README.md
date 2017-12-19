@@ -1,4 +1,6 @@
-### 패키지 설치
+###Ldap 서버 설치
+
+#### 패키지 설치
 
 ```bash
 yum install -y openldap-servers openldap-clients
