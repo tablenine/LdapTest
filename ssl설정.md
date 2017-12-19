@@ -53,4 +53,16 @@ Success create /etc/openldap/certs/pki/ldap.crt
   ``` bash
   ldapsearch -H ldaps:/// -D "cn=manager,dc=oops,dc=org" -W
   ```
-  ​
+
+#### 인증서 변경
+
+``` bash
+ openssl pkcs12 -inkey ldap.key -in ldap.crt -certfile ca-bundle.crt -export -out ldap.pfx
+ keytool -importkeystore -srckeystore ldap.pfx -srcstoretype pkcs12 -destkeystore ldap.jks -deststoretype jks
+```
+
+#### 테스트
+
+``` bash
+java -Djavax.net.ssl.trustStore=/home/share/sfsf/ldap.jks SSLPoke localhost 636
+```
