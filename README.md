@@ -79,3 +79,8 @@ ldap_passwd -u Admin replica@oops.org
 ```
 출처 : [안녕리눅스3 UserG Guide](https://joungkyun.gitbooks.io/annyung-3-user-guide/chapter2-3-auth-integrate-openldap-1.html)
 
+#### command로 인증 테스트
+```bash
+ ldapsearch -LLL -H ldap://ad서버ip -Did@도메인 -W -b "dc=tablenine,dc=com"
+ ex) ldapsearch -LLL -H ldap://192.168.1.x -Duser39@tablenine.com -W -b "dc=tablenine,dc=com"
+```
